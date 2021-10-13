@@ -1,1 +1,4 @@
 <p>server works!</p>
+<input type="text" [(ngModel)]="username">
+<p>the inputed text is: {{ username }}</p>
+<button class="btn btn-primary" (click)="clearUsername()" [disabled]="isUsernameEmpty()">Click Me</button>
