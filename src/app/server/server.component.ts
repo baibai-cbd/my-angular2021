@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ServerComponent implements OnInit {
 
   username = '';
+  showDetail = true;
+  toggleCount = 0;
+  toggleEvents = [];
 
   constructor() { }
 
@@ -20,5 +23,31 @@ export class ServerComponent implements OnInit {
 
   clearUsername = () => {
     this.username = '';
+  }
+
+  displayDetail = () => {
+    return this.showDetail;
+  }
+
+  toggleDetail = () => {
+    this.showDetail = !this.showDetail;
+    this.toggleEvents.push({ index: this.toggleCount + 1, name: 'click' });
+    this.toggleCount++;
+  }
+
+  getStyle = (item) => {
+    if (item.index >= 5) {
+      return { backgroundColor: 'blue' };
+    } else {
+      return {};
+    }
+  }
+
+  getClass = (item) => {
+    if (item.index >= 5) {
+      return { fiver: true };
+    } else {
+      return {};
+    }
   }
 }
